@@ -1,11 +1,25 @@
 Package: jaspPlotBuilder
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: A tidyplot-based plot builder for JASP
+Version: 0.19.2
+Date: 2024-30-12
+Author: JASP Team
+Website: jasp-stats.org
+Maintainer: JASP Team <info@jasp-stats.org>
+Description: A tidyplot-based plot builder for JASP
+License: GPL (>= 2)
 Encoding: UTF-8
-LazyData: true
+Imports:
+  ggplot2,
+  tidyplots,
+  ggrepel,
+  dplyr,
+  rlang,
+  jaspBase,
+  jaspGraphs,
+  tidyplots,
+Remotes:
+  jasp-stats/jaspBase,
+  jasp-stats/jaspGraphs,
+  jasp-stats/jaspTTests,
+  dustinfife/flexplot
