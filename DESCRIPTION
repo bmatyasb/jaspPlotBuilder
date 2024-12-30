@@ -21,5 +21,4 @@ Imports:
 Remotes:
   jasp-stats/jaspBase,
   jasp-stats/jaspGraphs,
-  jasp-stats/jaspTTests,
-  dustinfife/flexplot
+  jasp-stats/jaspTTests
