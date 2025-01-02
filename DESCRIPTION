@@ -17,7 +17,7 @@ Imports:
   rlang,
   jaspBase,
   jaspGraphs,
-  tidyplots,
+  tidyplots
 Remotes:
   jasp-stats/jaspBase,
   jasp-stats/jaspGraphs,
