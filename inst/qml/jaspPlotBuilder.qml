@@ -1008,8 +1008,8 @@ Form {
                         name: "addBarStackAbsolute"
                         label: qsTr("Bar stack (absolute)")
                         info: qsTr("Add an absolute bar stack to the plot.")
-                        enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
-                                 && variableColorPlotBuilder.count > 0
+                        // enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
+                        //          && variableColorPlotBuilder.count > 0
 
                         DoubleField {
                             name: "alphaBarStackAbsolute"
@@ -1031,8 +1031,8 @@ Form {
                         name: "addBarStackRelative"
                         label: qsTr("Bar stack (relative)")
                         info: qsTr("Add a relative bar stack to the plot.")
-                        enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
-                                 && variableColorPlotBuilder.count > 0
+                        // enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
+                        //          && variableColorPlotBuilder.count > 0
 
                         DoubleField {
                             name: "alphaBarStackRelative"
@@ -1054,8 +1054,8 @@ Form {
                         name: "addAreaStackAbsolute"
                         label: qsTr("Area stack (absolute)")
                         info: qsTr("Add an absolute area stack to the plot.")
-                        enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
-                                 && variableColorPlotBuilder.count > 0
+                        // enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
+                        //          && variableColorPlotBuilder.count > 0
 
                         DoubleField {
                             name: "alphaAreaStackAbsolute"
@@ -1089,8 +1089,8 @@ Form {
                         name: "addAreaStackRelative"
                         label: qsTr("Area Stack (Relative)")
                         info: qsTr("Add a relative area stack to the plot.")
-                        enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
-                                 && variableColorPlotBuilder.count > 0
+                        // enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
+                        //          && variableColorPlotBuilder.count > 0
 
                         DoubleField {
                             name: "alphaAreaStackRelative"
