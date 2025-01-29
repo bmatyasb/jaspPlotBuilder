@@ -126,6 +126,12 @@ Form {
                         fieldWidth: 239
                     }
 
+                    CheckBox {
+                    name:"useRMFactorAsFill"
+                    label: "Use RM factor as a group/color variable"
+                    visible: yesRM.checked
+                    }
+
                     AssignedVariablesList {
                         name: "variableYPlotBuilder"
                         title: "Y axis"
@@ -151,7 +157,7 @@ Form {
                         minLevels: 2
                         singleVariable: true
                         info: qsTr("Select the variable for the X-axis.")
-                        visible: noRM.checked
+                        // visible: noRM.checked
                         property bool active: noRM.checked
                         onActiveChanged: if (!active && count > 0) itemDoubleClicked(0)
                         onCountChanged: {
@@ -780,8 +786,8 @@ Form {
                 GridLayout {
                     columns: 3
                     rows: 2
-                    rowSpacing: 40     // Sorok közötti távolság növelése
-                    columnSpacing: 40    // Oszlopok közötti távolság növelése
+                    rowSpacing: 40
+                    columnSpacing: 40
 
                     // Sum Bar
                     CheckBox {
@@ -1008,8 +1014,8 @@ Form {
                         name: "addBarStackAbsolute"
                         label: qsTr("Bar stack (absolute)")
                         info: qsTr("Add an absolute bar stack to the plot.")
-                        // enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
-                        //          && variableColorPlotBuilder.count > 0
+                        enabled: (isRM.value === "RM") || (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
+                                 && variableColorPlotBuilder.count > 0
 
                         DoubleField {
                             name: "alphaBarStackAbsolute"
@@ -1031,8 +1037,8 @@ Form {
                         name: "addBarStackRelative"
                         label: qsTr("Bar stack (relative)")
                         info: qsTr("Add a relative bar stack to the plot.")
-                        // enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
-                        //          && variableColorPlotBuilder.count > 0
+                        enabled: (isRM.value === "RM") ||  (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
+                                 && variableColorPlotBuilder.count > 0
 
                         DoubleField {
                             name: "alphaBarStackRelative"
@@ -1054,8 +1060,8 @@ Form {
                         name: "addAreaStackAbsolute"
                         label: qsTr("Area stack (absolute)")
                         info: qsTr("Add an absolute area stack to the plot.")
-                        // enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
-                        //          && variableColorPlotBuilder.count > 0
+                        enabled: (isRM.value === "RM") || (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
+                                 && variableColorPlotBuilder.count > 0
 
                         DoubleField {
                             name: "alphaAreaStackAbsolute"
@@ -1089,8 +1095,8 @@ Form {
                         name: "addAreaStackRelative"
                         label: qsTr("Area Stack (Relative)")
                         info: qsTr("Add a relative area stack to the plot.")
-                        // enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
-                        //          && variableColorPlotBuilder.count > 0
+                        enabled: (isRM.value === "RM") ||  (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
+                                 && variableColorPlotBuilder.count > 0
 
                         DoubleField {
                             name: "alphaAreaStackRelative"
@@ -1635,7 +1641,7 @@ Form {
                     // SD Error Bar
                     CheckBox {
                         name: "addSDErrorBar"
-                        label: qsTr("SD error bar")
+                        label: qsTr("SD Error Bar")
                         info: qsTr("Enable to add standard deviation error bars to the plot.")
                         enabled: (isRM.value === "RM")
                                  || ((variableXPlotBuilder.count > 0)
@@ -1709,7 +1715,7 @@ Form {
                     // 95% CI Error Bar
                     CheckBox {
                         name: "addCI95ErrorBar"
-                        label: qsTr("95% CI error bar")
+                        label: qsTr("95% CI Error Bar")
                         info: qsTr("Enable to add 95% confidence interval error bars to the plot.")
                         enabled: (isRM.value === "RM")
                                  || ((variableXPlotBuilder.count > 0)

@@ -214,16 +214,42 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
         datasetRMList[[plotId]]
       } else {
         datasetNonRM
-      }    # Set xVar and yVar according to isRM
-    if (identical(tab[["isRM"]], "RM")) {
-      xVar <- tab[["rmFactorText"]]
-      yVar <- tab[["dimensionText"]]
-    } else {
+      }
+
+    #old but gold
+      #   # Set xVar and yVar according to isRM
+    #   if (identical(tab[["isRM"]], "RM")) {
+    #     colorVar <- if (tab[["useRMFactorAsFill"]]) tab[["rmFactorText"]] else tab[["variableColorPlotBuilder"]]
+    #     xVar <- if (tab[["useRMFactorAsFill"]]) "variableXPlotBuilder" else tab[["xVar"]]
+    #     yVar <- tab[["dimensionText"]]
+    #   }
+    #   else {
+    #   xVar <- tab[["variableXPlotBuilder"]]
+    #   yVar <- tab[["variableYPlotBuilder"]]
+    # }
+    #
+    # colorVar   <- tab[["variableColorPlotBuilder"]]
+    #
+
+    #for request:
+       # Alapértelmezett beállítások
+      colorVar <- tab[["variableColorPlotBuilder"]]
       xVar <- tab[["variableXPlotBuilder"]]
       yVar <- tab[["variableYPlotBuilder"]]
-    }
 
-    colorVar   <- tab[["variableColorPlotBuilder"]]
+      # Ha RM van
+      if (identical(tab[["isRM"]], "RM")) {
+        yVar <- tab[["dimensionText"]]
+
+        if (tab[["useRMFactorAsFill"]]) {
+          colorVar <- tab[["rmFactorText"]]
+          xVar <- tab[["variableXPlotBuilder"]]
+        } else {
+          colorVar <- tab[["variableColorPlotBuilder"]]
+          xVar <- tab[["rmFactorText"]]
+        }
+      }
+
     plotId     <- as.character(tab[["plotId"]])
     pointShape <- as.numeric(tab[["pointShapePlotBuilder"]])
 
