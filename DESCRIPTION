@@ -1,0 +1,26 @@
+Package: jaspPlotBuilder
+Type: Package
+Title: A tidyplot-based plot builder for JASP
+Version: 0.19.3
+Date: 2025-01-29
+Author: JASP Team
+Website: jasp-stats.org
+Maintainer: JASP Team <info@jasp-stats.org>
+Description: A tidyplot-based plot builder for JASP
+License: GPL (>= 2)
+Encoding: UTF-8
+Imports:
+  ggplot2,
+  tidyplots,
+  rlang,
+  dplyr,
+  tidyr,
+  ggprism,
+  patchwork,
+  tidyverse,
+  ggpubr,
+  ggeasy,
+  forcats
+Remotes:
+  jasp-stats/jaspBase,
+  jasp-stats/jaspGraphs
