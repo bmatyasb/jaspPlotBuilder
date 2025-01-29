@@ -45,8 +45,7 @@ Form {
     TabView {
 
 
-        name: "scatterPlots"
-        // name: "PlotBuilderTab"
+        name: "PlotBuilderTab"
 
         rowComponent: Group {
 

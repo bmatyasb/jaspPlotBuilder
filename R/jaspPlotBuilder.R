@@ -64,7 +64,7 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
 .plotBuilderReadData <- function(options) {
 
   # Collect all required columns
-  allColumns <- unique(unlist(lapply(options$scatterPlots, function(tab) {
+  allColumns <- unique(unlist(lapply(options$PlotBuilderTab, function(tab) {
     c(
       tab$variableXPlotBuilder,
       tab$variableYPlotBuilder,
@@ -88,7 +88,7 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
   datasetNonRM <- dataset
 
   # Process each RM plot separately
-  for (tab in options$scatterPlots) {
+  for (tab in options$PlotBuilderTab) {
     if (identical(tab[["isRM"]], "RM")) {
       repeatedMeasuresCols <- tab[["variableRepeatedMeasures"]]
       pivotedXName <- tab[["rmFactorText"]]
@@ -141,10 +141,10 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
   .hasErrors(
     dataset = dataset,
     custom  = list(
-      # Existing Check: Ensure all scatterPlots have a plotId
+      # Existing Check: Ensure all PlotBuilderTab have a plotId
       plotId_present = function() {
-        # Extract plotIds from scatterPlots
-        plotIds <- sapply(options$scatterPlots, function(tab) tab$plotId)
+        # Extract plotIds from PlotBuilderTab
+        plotIds <- sapply(options$PlotBuilderTab, function(tab) tab$plotId)
         # Identify missing plotIds
         missingPlotIds <- is.na(plotIds) | plotIds == ""
         if (any(missingPlotIds)) {
@@ -155,8 +155,8 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
 
       # Existing Check: Ensure all plotIds are unique
       plotId_unique = function() {
-        # Extract plotIds from scatterPlots
-        plotIds <- sapply(options$scatterPlots, function(tab) tab$plotId)
+        # Extract plotIds from PlotBuilderTab
+        plotIds <- sapply(options$PlotBuilderTab, function(tab) tab$plotId)
         # Check for duplicates
         duplicatedPlotIds <- any(duplicated(plotIds))
         if (duplicatedPlotIds) {
@@ -181,8 +181,8 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
     plotResults <- .plotBuilderPlots(dataset, options)
     jaspResults[["statePlotResults"]] <- createJaspState(plotResults)
 
-    # Depend on scatterPlots
-    jaspResults[["statePlotResults"]]$dependOn("scatterPlots")
+    # Depend on PlotBuilderTab
+    jaspResults[["statePlotResults"]]$dependOn("PlotBuilderTab")
   } else {
     plotResults <- jaspResults[["statePlotResults"]]$object
   }
@@ -204,7 +204,7 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
 
 
   # Creating plots -----
-  for (tab in options[["scatterPlots"]]) {
+  for (tab in options[["PlotBuilderTab"]]) {
 
 
 
@@ -1653,7 +1653,7 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
 
     # Save the plot in our results list
     updatedPlots[[plotId]] <- tidyplot_obj
-  }  # End of loop over scatterPlotss
+  }  # End of loop over PlotBuilderTabs
 
   return(list(updatedPlots = updatedPlots))
 }
@@ -1681,7 +1681,7 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
     if (!is(tidyPlotsContainer[[plotKey]], "JaspPlot")) {
       # Retrieve plot dimensions from the corresponding tab
       tab <- NULL
-      for (t in options$scatterPlots) {
+      for (t in options$PlotBuilderTab) {
         if (as.character(t$plotId) == plotId) {
           tab <- t
           break
