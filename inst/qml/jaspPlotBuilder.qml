@@ -1008,9 +1008,7 @@ Form {
                         name: "addBarStackAbsolute"
                         label: qsTr("Bar stack (absolute)")
                         info: qsTr("Add an absolute bar stack to the plot.")
-                        enabled: (isRM.value === "RM")
-                                 || ((variableXPlotBuilder.count > 0)
-                                     && (variableYPlotBuilder.count > 0))
+                        enabled: (variableXPlotBuilder.count > 0 || variableYPlotBuilder.count > 0)
                                  && variableColorPlotBuilder.count > 0
 
                         DoubleField {
