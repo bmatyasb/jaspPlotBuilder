@@ -23,25 +23,4 @@ Analysis
 		preloadData	: false
 
 	}
-Analysis
-	{
-    		title:  qsTr("Plot grid")
-    		qml:    "jaspPlotGrid.qml"
-    		func:   "jaspPlotGrid"
-    		preloadData: false
-	}
-Analysis
-	{
-    		title:  qsTr("bmplot")
-    		qml:    "bmplot.qml"
-    		func:   "bmplot"
-    		preloadData: false
-	}
-Analysis
-	{
-    		title:  qsTr("bmcall")
-    		qml:    "bmcall.qml"
-    		func:   "bmcall"
-    		preloadData: false
-	}
 }

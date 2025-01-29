@@ -1635,7 +1635,7 @@ Form {
                     // SD Error Bar
                     CheckBox {
                         name: "addSDErrorBar"
-                        label: qsTr("SD Error Bar")
+                        label: qsTr("SD error bar")
                         info: qsTr("Enable to add standard deviation error bars to the plot.")
                         enabled: (isRM.value === "RM")
                                  || ((variableXPlotBuilder.count > 0)
@@ -1709,7 +1709,7 @@ Form {
                     // 95% CI Error Bar
                     CheckBox {
                         name: "addCI95ErrorBar"
-                        label: qsTr("95% CI Error Bar")
+                        label: qsTr("95% CI error bar")
                         info: qsTr("Enable to add 95% confidence interval error bars to the plot.")
                         enabled: (isRM.value === "RM")
                                  || ((variableXPlotBuilder.count > 0)
