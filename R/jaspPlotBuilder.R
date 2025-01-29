@@ -208,16 +208,16 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
 
 
 
-      plotId <- as.character(tab[["plotId"]])
-      localData <- if (identical(tab[["isRM"]], "RM")) {
-        # Use the specific RM dataset for this plot
-        datasetRMList[[plotId]]
-      } else {
-        datasetNonRM
-      }
+    plotId <- as.character(tab[["plotId"]])
+    localData <- if (identical(tab[["isRM"]], "RM")) {
+      # Use the specific RM dataset for this plot
+      datasetRMList[[plotId]]
+    } else {
+      datasetNonRM
+    }
 
     #old but gold
-      #   # Set xVar and yVar according to isRM
+    #   # Set xVar and yVar according to isRM
     #   if (identical(tab[["isRM"]], "RM")) {
     #     colorVar <- if (tab[["useRMFactorAsFill"]]) tab[["rmFactorText"]] else tab[["variableColorPlotBuilder"]]
     #     xVar <- if (tab[["useRMFactorAsFill"]]) "variableXPlotBuilder" else tab[["xVar"]]
@@ -232,23 +232,23 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
     #
 
     #for request:
-       # Alapértelmezett beállítások
-      colorVar <- tab[["variableColorPlotBuilder"]]
-      xVar <- tab[["variableXPlotBuilder"]]
-      yVar <- tab[["variableYPlotBuilder"]]
+    # Alapértelmezett beállítások
+    colorVar <- tab[["variableColorPlotBuilder"]]
+    xVar <- tab[["variableXPlotBuilder"]]
+    yVar <- tab[["variableYPlotBuilder"]]
 
-      # Ha RM van
-      if (identical(tab[["isRM"]], "RM")) {
-        yVar <- tab[["dimensionText"]]
+    # Ha RM van
+    if (identical(tab[["isRM"]], "RM")) {
+      yVar <- tab[["dimensionText"]]
 
-        if (tab[["useRMFactorAsFill"]]) {
-          colorVar <- tab[["rmFactorText"]]
-          xVar <- tab[["variableXPlotBuilder"]]
-        } else {
-          colorVar <- tab[["variableColorPlotBuilder"]]
-          xVar <- tab[["rmFactorText"]]
-        }
+      if (tab[["useRMFactorAsFill"]]) {
+        colorVar <- tab[["rmFactorText"]]
+        xVar <- tab[["variableXPlotBuilder"]]
+      } else {
+        colorVar <- tab[["variableColorPlotBuilder"]]
+        xVar <- tab[["rmFactorText"]]
       }
+    }
 
     plotId     <- as.character(tab[["plotId"]])
     pointShape <- as.numeric(tab[["pointShapePlotBuilder"]])
@@ -1733,6 +1733,8 @@ jaspPlotBuilder <- function(jaspResults, dataset, options) {
   availablePlotIDsContainer[["availablePlotIDsText"]] <- availablePlotIDsHtml
 }
 
+
+#plot builder ----
 .plotBuilderOutputPlotGrid <- function(jaspResults, options, plotResults, dataset) {
   updatedPlots <- plotResults$updatedPlots
 
