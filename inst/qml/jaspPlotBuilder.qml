@@ -1000,8 +1000,8 @@ Form {
 
                 GridLayout {
                     columns: 2
-                    rowSpacing: 40     // Sorok közötti távolság növelése
-                    columnSpacing: 70    // Oszlopok közötti távolság növelése
+                    rowSpacing: 40
+                    columnSpacing: 70
 
                     // Bar Stack Absolute
                     CheckBox {
